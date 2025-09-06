@@ -100,6 +100,8 @@
             line-height: 1.6;
             overflow-x: hidden; /* Prevents horizontal scroll */
             cursor: none; /* Hide default cursor */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         a, button, .skill-card, .flip-card-inner, .menu-trigger {
@@ -119,22 +121,171 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            gap: 1.5rem;
             transition: opacity 0.75s ease;
             opacity: 1;
         }
-
+        
         .preloader.preloader-hidden {
             opacity: 0;
             pointer-events: none;
         }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-top-color: var(--accent-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        
+        .slinky {
+          animation: camera 2s ease-in-out infinite;
+          margin: auto;
+          position: relative;
+          width: 8em;
+          height: 14em;
+        }
+        .slinky__ring {
+          border-radius: 50%;
+          box-shadow: 0 0 0 0.25em #255ff4 inset, 0 0 4.5em rgba(37, 95, 244, 0.3) inset, 0 0 4.25em rgba(37, 95, 244, 0.3);
+          position: absolute;
+          left: 0;
+          width: inherit;
+          height: 4em;
+          transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em);
+          transform-origin: 100% 50%;
+        }
+        .slinky__ring:nth-child(1) {
+          animation: move1 2s linear infinite;
+          bottom: 0em;
+        }
+        .slinky__ring:nth-child(2) {
+          animation: move2 2s linear infinite;
+          bottom: 0.25em;
+        }
+        .slinky__ring:nth-child(3) {
+          animation: move3 2s linear infinite;
+          bottom: 0.5em;
+        }
+        .slinky__ring:nth-child(4) {
+          animation: move4 2s linear infinite;
+          bottom: 0.75em;
+        }
+        .slinky__ring:nth-child(5) {
+          animation: move5 2s linear infinite;
+          bottom: 1em;
+        }
+        .slinky__ring:nth-child(6) {
+          animation: move6 2s linear infinite;
+          bottom: 1.25em;
+        }
+        .slinky__ring:nth-child(7) {
+          animation: move7 2s linear infinite;
+          bottom: 1.5em;
+        }
+        .slinky__ring:nth-child(8) {
+          animation: move8 2s linear infinite;
+          bottom: 1.75em;
+        }
+        .slinky__ring:nth-child(9) {
+          animation: move9 2s linear infinite;
+          bottom: 2em;
+        }
+        .slinky__ring:nth-child(10) {
+          animation: move10 2s linear infinite;
+          bottom: 2.25em;
+        }
+        .slinky__ring:nth-child(11) {
+          animation: move11 2s linear infinite;
+          bottom: 2.5em;
+        }
+        .slinky__ring:nth-child(12) {
+          animation: move12 2s linear infinite;
+          bottom: 2.75em;
+        }
+        .slinky__ring:nth-child(13) {
+          animation: move13 2s linear infinite;
+          bottom: 3em;
+        }
+        #loading-percentage {
+            color: var(--primary-text);
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        @keyframes camera {
+          from { transform: translateX(0); }
+          to { transform: translateX(-9.5em); }
+        }
+        @keyframes move13 {
+          0% { transform: translateY(0em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          35% { transform: translateY(0em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+          40%, 100% { transform: translateY(3em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+        }
+        @keyframes move12 {
+          0% { transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          5% { transform: translateY(-0.25em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          40% { transform: translateY(-0.25em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+          45%, 100% { transform: translateY(2.5em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+        }
+        @keyframes move11 {
+          5% { transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          10% { transform: translateY(-0.5em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          45% { transform: translateY(-0.5em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+          50%, 100% { transform: translateY(2em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+        }
+        @keyframes move10 {
+          10% { transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          15% { transform: translateY(-0.75em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          50% { transform: translateY(-0.75em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+          55%, 100% { transform: translateY(1.5em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+        }
+        @keyframes move9 {
+          15% { transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          20% { transform: translateY(-1em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          55% { transform: translateY(-1em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+          60%, 100% { transform: translateY(1em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+        }
+        @keyframes move8 {
+          20% { transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          25% { transform: translateY(-1.25em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          60% { transform: translateY(-1.25em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+          65%, 100% { transform: translateY(0.5em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+        }
+        @keyframes move7 {
+          25% { transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          30% { transform: translateY(-1.5em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          65% { transform: translateY(-1.5em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+          70%, 100% { transform: translateY(0em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+        }
+        @keyframes move6 {
+          30% { transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          35% { transform: translateY(-1.75em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          70% { transform: translateY(-1.75em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+          75%, 100% { transform: translateY(-0.5em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+        }
+        @keyframes move5 {
+          35% { transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          40% { transform: translateY(-2em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          75% { transform: translateY(-2em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+          80%, 100% { transform: translateY(-1em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+        }
+        @keyframes move4 {
+          40% { transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          45% { transform: translateY(-2.25em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          80% { transform: translateY(-2.25em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+          85%, 100% { transform: translateY(-1.5em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+        }
+        @keyframes move3 {
+          45% { transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          50% { transform: translateY(-2.5em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          85% { transform: translateY(-2.5em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+          90%, 100% { transform: translateY(-2em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+        }
+        @keyframes move2 {
+          50% { transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          55% { transform: translateY(-2.75em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          90% { transform: translateY(-2.75em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+          95%, 100% { transform: translateY(-2.5em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
+        }
+        @keyframes move1 {
+          55% { transform: translateY(0) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          60% { transform: translateY(-3em) rotateZ(0) rotateX(0) translateX(-0.75em); }
+          95%, 100% { transform: translateY(-3em) rotateZ(180deg) rotateX(180deg) translateX(-0.75em); }
         }
 
 
@@ -147,7 +298,7 @@
             height: 100%;
             width: 100%;
             z-index: -1;
-            background-image: url("https://images.unsplash.com/photo-1499678329028-101435549a4e?q=80&w=1170&auto-format&fit=crop&ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%D");
+            background-image: var(--bg-image);
             background-size: cover;
             background-position: center;
         }
@@ -196,10 +347,11 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 1002; /* Higher z-index */
+            z-index: 1002;
             display: flex;
             gap: 25px;
             transition: transform 0.8s cubic-bezier(.785,.135,.15,.86), filter 0.8s cubic-bezier(.785,.135,.15,.86);
+            will-change: transform, filter;
         }
 
         .top-nav li {
@@ -208,20 +360,49 @@
             width: 60px;
             height: 60px;
             background: var(--glass-bg);
-            backdrop-filter: blur(2px);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             border: 1px solid var(--glass-border);
             border-radius: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: width 0.5s ease, background-color 0.5s ease;
-            /* OPTIMIZATION: Hint to the browser about upcoming changes for smoother animations. */
-            will-change: width, background-color;
+            transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+                        background-color 0.5s ease, 
+                        transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            will-change: width, transform;
+            overflow: hidden;
+        }
+        
+        /* The Magnifying Glass Effect pseudo-element */
+        .top-nav li::before, .glass-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: var(--bg-image);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: var(--bg-pos-x, 0px) var(--bg-pos-y, 0px);
+            transform: scale(1.05); /* 5% Magnify effect */
+            z-index: -1;
+        }
+        
+        .modal-content.glass-container::before {
+             display: none;
+        }
+
+
+        .top-nav li:not(.active):hover {
+            transform: translateY(-5px) scale(1.15);
+            background: var(--glass-bg-hover);
         }
 
         .top-nav li.active {
             width: 180px;
             background: var(--glass-bg-hover);
+            transform: scale(1.05);
         }
 
         .top-nav li .icon {
@@ -257,6 +438,8 @@
             transform: scale(0);
             transition: transform 0.5s ease;
             transition-delay: 0s;
+            font-weight: 700;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
         }
 
         .top-nav li.active .title {
@@ -278,7 +461,7 @@
         .menu-trigger {
             position: fixed;
             top: 0;
-            left: 5px; /* Shifted further left */
+            left: 5px;
             width: 60px;
             height: 100%;
             display: flex;
@@ -314,14 +497,17 @@
             padding: 60px;
             will-change: transform;
             z-index: 1000;
-            display: flex; /* Added for centering */
-            align-items: center; /* Added for centering */
-            
-            /* Glass effect for menu */
+            display: flex;
+            align-items: center;
             background: rgba(10, 15, 25, 0.5);
             backdrop-filter: blur(10px) saturate(180%);
             -webkit-backdrop-filter: blur(10px) saturate(180%);
             border-right: 1px solid rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+        }
+        
+        .menu::before {
+            display: none; /* Disable magnification on side menu, keep blur */
         }
 
         body.side-menu-open .menu {
@@ -341,6 +527,7 @@
             font-size: 1.5rem;
             text-decoration: none;
             transition: color 0.3s ease;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
         }
 
         .menu ul li a:hover {
@@ -350,7 +537,7 @@
 
         /* --- Main Content & Sections --- */
         main, footer {
-            padding: 0 1rem;
+            padding: 0 5vw;
             position: relative; 
             background-color: transparent;
             transition: transform 0.8s cubic-bezier(.785,.135,.15,.86), filter 0.5s ease;
@@ -360,12 +547,13 @@
         body.side-menu-open main,
         body.side-menu-open footer,
         body.side-menu-open .top-nav {
-            transform: perspective(1000px) translateX(100px) translateZ(-150px) rotateY(-7deg);
-            filter: blur(5px);
+            transform: translateX(100px) scale(0.95);
+            filter: blur(3px);
+            transform-origin: center left;
         }
 
         .content-section {
-            max-width: 900px;
+            max-width: 1400px;
             margin: 4rem auto;
             padding-top: 60px;
         }
@@ -375,15 +563,15 @@
             font-size: 2rem;
             color: #fff;
             text-align: center;
-            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
         }
 
-        h3 {
-            color: #fff;
+        h3, p, .list-item, .skill-card {
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
         }
 
         /* --- Scroll Animation --- */
@@ -398,25 +586,19 @@
             transform: translateY(0);
         }
 
-        /* --- Glass Container (Applying your exact code) --- */
+        /* --- Glass Container --- */
         .glass-container {
             padding: 2.5rem;
-            
-            /* The Foundation: Creating Glass */
             position: relative;
             background: var(--glass-bg);
-            backdrop-filter: blur(5px) saturate(180%);
-            -webkit-backdrop-filter: blur(5px) saturate(180%);
             border: 1px solid var(--glass-border);
             border-radius: 2rem;
             box-shadow: 0 8px 32px var(--glass-shadow), 
                         inset 0 4px 20px var(--glass-inset-shadow);
             transition: background 0.5s, border 0.5s, box-shadow 0.5s;
-            /* OPTIMIZATION: Prepare this complex element for smoother rendering during scroll. */
-            will-change: backdrop-filter;
+            overflow: hidden;
         }
-
-        /* The Liquid Touch: Pseudo-element Magic */
+        
         .glass-container::after {
             content: '';
             position: absolute;
@@ -431,9 +613,8 @@
             box-shadow: inset -10px -8px 0px -11px var(--liquid-highlight),
                         inset 0px -9px 0px -8px var(--liquid-highlight);
             opacity: 0.6;
-            z-index: -1;
-            filter: blur(1px) drop-shadow(10px 4px 6px black) brightness(115%);
-            transition: box-shadow 0.5s;
+            z-index: 1; /* Above the magnifying pseudo-element */
+            pointer-events: none;
         }
 
         /* --- Hero Section --- */
@@ -450,7 +631,7 @@
             align-items: center;
             justify-content: center;
             gap: 4rem;
-            max-width: 1100px;
+            max-width: 1400px;
             width: 100%;
         }
 
@@ -458,12 +639,16 @@
             text-align: left;
             flex: 1;
         }
+        
+        .hero-text h1, .hero-text p {
+             text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+        }
+
 
         .hero-text .title {
             font-size: 1.5rem;
             font-weight: 600;
             
-            /* --- START: Animated Gradient Style Applied --- */
             animation: title-gradient-animation 4s linear infinite alternate;
             background: linear-gradient(
                 to right in oklch,
@@ -474,7 +659,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             color: transparent;
-            /* --- END: Animated Gradient Style Applied --- */
         }
 
         .hero-text h1 {
@@ -488,7 +672,7 @@
             font-size: 1.2rem;
             font-weight: 500;
             margin-bottom: 1rem;
-            height: 2.2rem; /* Reserve space for typing text */
+            height: 2.2rem;
         }
 
         .hero-text .intro {
@@ -569,7 +753,7 @@
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             border-radius: 50%;
-            overflow: hidden; /* Added to contain magnified image */
+            overflow: hidden;
         }
 
         .flip-card-front img {
@@ -579,12 +763,12 @@
             object-fit: cover;
             border: 4px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-            transform: scale(1.1); /* Magnify image */
+            transform: scale(1.1);
             transition: transform 0.5s ease;
         }
 
         .flip-card-front:hover img {
-            transform: scale(1.2); /* Zoom on hover */
+            transform: scale(1.2);
         }
 
         .flip-card-back {
@@ -614,7 +798,7 @@
             width: 40px;
             height: 40px;
             z-index: 10;
-            display: none; /* Hidden by default */
+            display: none;
         }
 
         .hero-visual.flipped #video-pause-btn {
@@ -692,7 +876,6 @@
             text-align: center;
             color: #fff;
             
-            /* Simplified glass effect for smaller cards */
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 1rem;
@@ -727,12 +910,11 @@
         .project-card {
             padding: 1.5rem;
             color: #fff;
-            /* Simplified glass effect */
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 1rem;
             border-left: 3px solid var(--accent-color);
-            margin-bottom: 1.5rem; /* Replaces grid-gap for better animation control */
+            margin-bottom: 1.5rem;
         }
 
         .project-card.hidden-project {
@@ -747,7 +929,7 @@
         }
 
         .project-card.hidden-project.show {
-            max-height: 500px; /* Or a suitable large value */
+            max-height: 500px;
             opacity: 1;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
@@ -795,7 +977,6 @@
             justify-content: space-between;
             align-items: center;
             
-            /* Simplified glass effect */
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 1rem;
@@ -1211,7 +1392,7 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            main {
+            main, footer {
                 padding: 0 1.5rem;
             }
             .hero-content {
@@ -1247,7 +1428,22 @@
 </head>
 <body>
     <div class="preloader">
-        <div class="spinner"></div>
+        <div class="slinky">
+            <div class="slinky__ring"></div>
+            <div class="slinky__ring"></div>
+            <div class="slinky__ring"></div>
+            <div class="slinky__ring"></div>
+            <div class="slinky__ring"></div>
+            <div class="slinky__ring"></div>
+            <div class="slinky__ring"></div>
+            <div class="slinky__ring"></div>
+            <div class="slinky__ring"></div>
+            <div class="slinky__ring"></div>
+            <div class="slinky__ring"></div>
+            <div class="slinky__ring"></div>
+            <div class="slinky__ring"></div>
+        </div>
+        <span id="loading-percentage">0%</span>
     </div>
     
     <div class="cursor cursor--large"></div>
@@ -1368,7 +1564,7 @@
         <section id="about" class="content-section hidden">
             <div class="glass-container">
                 <h2><span class="material-symbols-outlined">cloud</span> About Me</h2>
-                <p style="color: white; font-weight: 400;">I am a dedicated Cloud Engineer with a passion for designing, deploying, and managing secure, scalable, and highly available cloud infrastructure. My expertise lies in AWS and Azure, where I focus on core areas like Identity and Access Management (IAM), resource group organization, and network security. I specialize in implementing robust security measures, such as configuring firewalls and Network Security Groups (NSGs) for virtual machines, to protect critical assets and ensure compliance.</p>
+                <p>I am a dedicated Cloud Engineer with a passion for designing, deploying, and managing secure, scalable, and highly available cloud infrastructure. My expertise lies in AWS and Azure, where I focus on core areas like Identity and Access Management (IAM), resource group organization, and network security. I specialize in implementing robust security measures, such as configuring firewalls and Network Security Groups (NSGs) for virtual machines, to protect critical assets and ensure compliance.</p>
             </div>
         </section>
 
@@ -1445,7 +1641,7 @@
                             <a href="#" class="project-link code-preview-btn" data-repo="evolvedgamerr/your-repo-name-2">Source Code</a>
                         </div>
                     </div>
-                    <div class="project-card hidden-project">
+                    <div class="project-card">
                         <h3>Containerized Application Deployment</h3>
                         <p>Took a monolithic web application, containerized it using Docker, and deployed it to an AWS EC2 instance. This project focused on the principles of containerization for portability and consistent runtime environments, with a focus on securing the host VM.</p>
                          <p class="tech-stack">Tech: Docker, AWS EC2, Ubuntu, Nginx</p>
@@ -1454,7 +1650,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card hidden-project">
+                    <div class="project-card">
                         <h3>Serverless API with AWS Lambda & API Gateway</h3>
                         <p>Built a RESTful API using AWS Lambda functions written in Python, exposed via Amazon API Gateway. The API performs CRUD operations on a DynamoDB table, showcasing a completely serverless and highly scalable backend solution.</p>
                         <p class="tech-stack">Tech: AWS Lambda, API Gateway, DynamoDB, Python, Boto3</p>
@@ -1462,7 +1658,7 @@
                             <a href="#" class="project-link code-preview-btn" data-repo="evolvedgamerr/serverless-api-project">Source Code</a>
                         </div>
                     </div>
-                    <div class="project-card hidden-project">
+                    <div class="project-card">
                         <h3>CI/CD Pipeline with GitHub Actions</h3>
                         <p>Created a full CI/CD pipeline for a web application using GitHub Actions. The pipeline automatically builds, tests, and deploys the application to an Azure App Service whenever code is pushed to the main branch, ensuring rapid and reliable delivery.</p>
                         <p class="tech-stack">Tech: GitHub Actions, Azure App Service, YAML, Docker</p>
@@ -1470,71 +1666,7 @@
                             <a href="#" class="project-link code-preview-btn" data-repo="evolvedgamerr/cicd-pipeline-project">Source Code</a>
                         </div>
                     </div>
-                    <div class="project-card hidden-project">
-                        <h3>Cloud Monitoring with Prometheus & Grafana</h3>
-                        <p>Deployed a monitoring stack on a Kubernetes cluster using Prometheus for metrics collection and Grafana for visualization. Created custom dashboards to monitor the health and performance of cluster nodes and running applications.</p>
-                        <p class="tech-stack">Tech: Kubernetes, Prometheus, Grafana, Helm</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link" target="_blank">View Dashboard Screenshot</a>
-                        </div>
-                    </div>
-                    <div class="project-card hidden-project">
-                        <h3>Automated Cloud Cost-Saving Script</h3>
-                        <p>Wrote a Python script using the AWS SDK (Boto3) that scans an AWS account for idle resources, such as unattached EBS volumes and stopped EC2 instances. The script generates a report and can be configured to automatically terminate these resources to reduce costs.</p>
-                        <p class="tech-stack">Tech: Python, Boto3, AWS EC2, AWS EBS, Cron</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link code-preview-btn" data-repo="evolvedgamerr/aws-cost-saver-script">Source Code</a>
-                        </div>
-                    </div>
-                    <div class="project-card hidden-project">
-                        <h3>Kubernetes Cluster Deployment on AWS with EKS</h3>
-                        <p>Provisioned a production-ready Kubernetes cluster using Amazon EKS (Elastic Kubernetes Service) and Terraform. The setup included configuring the VPC, worker nodes in an Auto Scaling Group, and setting up IAM roles for pods.</p>
-                        <p class="tech-stack">Tech: AWS EKS, Terraform, Kubernetes, IAM</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link code-preview-btn" data-repo="evolvedgamerr/terraform-eks-cluster">Source Code</a>
-                        </div>
-                    </div>
-                    <div class="project-card hidden-project">
-                        <h3>Immutable Infrastructure with Packer and Ansible</h3>
-                        <p>Developed a workflow to create hardened 'golden' Amazon Machine Images (AMIs) using Packer. Ansible was used within the Packer build to install necessary software, apply security patches, and configure the OS, promoting an immutable infrastructure approach.</p>
-                        <p class="tech-stack">Tech: Packer, Ansible, AWS AMI, Bash</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link code-preview-btn" data-repo="evolvedgamerr/packer-ansible-ami">Source Code</a>
-                        </div>
-                    </div>
-                    <div class="project-card hidden-project">
-                        <h3>Automated Disaster Recovery Plan</h3>
-                        <p>Implemented an automated failover mechanism for a web application between two AWS regions. Used Route 53 health checks to monitor the primary region and a Lambda function to promote a read-replica RDS database and redirect traffic if the primary region became unavailable.</p>
-                        <p class="tech-stack">Tech: AWS Route 53, Lambda, RDS, CloudFormation</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link" target="_blank">View Architecture</a>
-                        </div>
-                    </div>
-                    <div class="project-card hidden-project">
-                        <h3>Centralized Log Management with ELK Stack</h3>
-                        <p>Set up an ELK (Elasticsearch, Logstash, Kibana) stack on Azure VMs to centralize application and system logs from multiple servers. Configured Filebeat on client servers to ship logs to Logstash for parsing and enrichment before storage and visualization.</p>
-                        <p class="tech-stack">Tech: Elasticsearch, Logstash, Kibana, Filebeat, Azure VM</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link" target="_blank">Live Kibana Demo</a>
-                        </div>
-                    </div>
-                    <div class="project-card hidden-project">
-                        <h3>Hybrid Cloud VPN Connection</h3>
-                        <p>Established a secure site-to-site VPN connection between an on-premises network (simulated using pfSense) and an Azure Virtual Network. This project demonstrates the ability to securely extend a local network into the cloud for hybrid scenarios.</p>
-                        <p class="tech-stack">Tech: Azure Virtual Network, VPN Gateway, pfSense</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link" target="_blank">Configuration Guide</a>
-                        </div>
-                    </div>
-                    <div class="project-card hidden-project">
-                        <h3>Cloud Security Posture Audit Tool</h3>
-                        <p>Developed a command-line tool in Bash that uses the AWS CLI to audit for common security misconfigurations. The tool checks for public S3 buckets, unrestricted security group rules, and IAM users without MFA enabled, and outputs a clear security report.</p>
-                        <p class="tech-stack">Tech: Bash, AWS CLI, jq, IAM, S3, EC2</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link code-preview-btn" data-repo="evolvedgamerr/aws-security-auditor">Source Code</a>
-                        </div>
-                    </div>
-                    </div>
+                </div>
                 <div class="view-more-controls">
                     <button class="action-btn view-more-btn" data-section="project">View More</button>
                     <a href="#" class="action-btn">Home</a>
@@ -2049,9 +2181,38 @@
         document.addEventListener('DOMContentLoaded', () => {
             // --- Preloader Logic ---
             const preloader = document.querySelector('.preloader');
+            const percentageText = document.getElementById('loading-percentage');
+            let currentPercent = 0;
+            let loadingInterval;
+
+            const updatePercentage = () => {
+                if (currentPercent < 100) {
+                    currentPercent++;
+                    if(percentageText) {
+                       percentageText.textContent = `${currentPercent}%`;
+                    }
+                } else {
+                    clearInterval(loadingInterval);
+                    setTimeout(() => {
+                       preloader.classList.add('preloader-hidden');
+                    }, 500);
+                }
+            };
+
             window.addEventListener('load', () => {
-                preloader.classList.add('preloader-hidden');
+                 // Fast-forward the loading bar once everything is actually loaded
+                 clearInterval(loadingInterval);
+                 currentPercent = 100;
+                 if(percentageText) {
+                    percentageText.textContent = `${currentPercent}%`;
+                 }
+                 setTimeout(() => {
+                   preloader.classList.add('preloader-hidden');
+                 }, 500);
             });
+            
+            loadingInterval = setInterval(updatePercentage, 30); // Simulate loading progress
+
 
             // --- Dynamic Background Image ---
             const backgroundImages = [
@@ -2066,32 +2227,36 @@
             const randomIndex = Math.floor(Math.random() * backgroundImages.length);
             const selectedImage = backgroundImages[randomIndex];
             
-            // Create a new style rule for the body::before pseudo-element
-            const styleSheet = document.createElement("style");
-            styleSheet.innerText = `body::before { background-image: url('${selectedImage}'); }`;
-            document.head.appendChild(styleSheet);
-
+            // Set a CSS variable for the background image to be used in multiple places
+            document.documentElement.style.setProperty('--bg-image', `url('${selectedImage}')`);
 
             // --- Lenis Smooth Scroll & Parallax ---
             const lenis = new Lenis({
                 lerp: 0.07,
                 wheelMultiplier: 0.8,
             });
+            
+            const updateMagnifiedPositions = () => {
+                const magnifiedElements = document.querySelectorAll('.top-nav li, .glass-container');
+                magnifiedElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    // Calculate the background position needed to counteract the element's position on the page
+                    const bgPosX = -rect.left;
+                    const bgPosY = -rect.top;
+                    // Apply these calculations as CSS variables to the element
+                    el.style.setProperty('--bg-pos-x', `${bgPosX}px`);
+                    el.style.setProperty('--bg-pos-y', `${bgPosY}px`);
+                });
+            };
+
 
             function raf(time) {
               lenis.raf(time);
+              updateMagnifiedPositions(); // Update on every frame for smoothness
               requestAnimationFrame(raf);
             }
             requestAnimationFrame(raf);
             
-            // OPTIMIZATION: Use transform for parallax instead of background-position.
-            // This is much smoother as it can be hardware-accelerated by the GPU.
-            lenis.on('scroll', (e) => {
-                // This sets the CSS variable --scroll-y, which is now used by the CSS for a smooth parallax effect.
-                document.body.style.setProperty('--scroll-y', `${e.animatedScroll * -0.15}px`);
-            });
-
-
             // --- Navigation Link Highlighting on Scroll ---
             const sections = document.querySelectorAll('section');
             const topNavLinks = document.querySelectorAll('.top-nav li');
@@ -2349,8 +2514,9 @@
             
             // --- Side Menu Logic ---
             const menuTrigger = document.querySelector('.menu-trigger');
-            
-            if (menuTrigger) {
+            const menu = document.querySelector('.menu');
+
+            if (menuTrigger && menu) {
                 const isTouchDevice = () => ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
                 if (isTouchDevice()) {
                     menuTrigger.addEventListener('click', () => {
@@ -2360,12 +2526,9 @@
                     menuTrigger.addEventListener('mouseenter', () => {
                         document.body.classList.add('side-menu-open');
                     });
-                    const sideMenu = document.querySelector('.menu');
-                    if(sideMenu) {
-                        sideMenu.addEventListener('mouseleave', () => {
-                             document.body.classList.remove('side-menu-open');
-                        });
-                    }
+                    menu.addEventListener('mouseleave', () => {
+                         document.body.classList.remove('side-menu-open');
+                    });
                 }
             }
             
@@ -2588,7 +2751,4 @@
     </script>
 </body>
 </html>
-
-
-
 
